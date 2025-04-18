@@ -46,6 +46,8 @@ public class User {
 
     public String getUsername() { return username; }
 
+    public String getPassword() { return password; }
+
     public List<User> getFollowers() {
         return Collections.unmodifiableList(followerList);
     }
