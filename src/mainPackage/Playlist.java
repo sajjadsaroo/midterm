@@ -60,16 +60,16 @@ public class Playlist {
     public ArrayList<Music> searchInPlaylist(String title) {
         ArrayList<Music> result = new ArrayList<>();
         for (Music m : playlist) {
-            if (m.getTitle().equalsIgnoreCase(title)) {
+            if (m.getTitle().trim().toLowerCase().contains(title.trim().toLowerCase())) {
                 result.add(m);
             }
         }
         return result;
     }
 
-    public Music searchInPlaylist(String title, String singerUsername) {
+    public Music searchInPlaylist(String title, String singerName) {
         for (Music m : playlist) {
-            if (m.getTitle().equalsIgnoreCase(title) && m.getSinger().getUsername().equalsIgnoreCase(singerUsername)) {
+            if (m.getTitle().trim().toLowerCase().contains(title.trim().toLowerCase()) && m.getSinger().getName().trim().toLowerCase().contains(singerName.trim().toLowerCase())) {
                 return m;
             }
         }
