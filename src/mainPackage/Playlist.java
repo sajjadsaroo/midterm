@@ -2,6 +2,7 @@ package mainPackage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Playlist {
 
@@ -89,6 +90,11 @@ public class Playlist {
             m.play();
         }
     }
+
+    public List<Music> getPlaylist() {
+        return Collections.unmodifiableList(playlist);
+    }
+
 
     public String getTitle() {
         return title;
