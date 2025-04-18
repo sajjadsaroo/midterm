@@ -30,6 +30,10 @@ public class User {
 
     // getters and public api
 
+    public void addPlaylistInternal(Playlist p) {
+        playlists.add(p);
+    }
+
     public void follow(User user) {}
 
     public void createPlaylist(String title) {
@@ -46,7 +50,12 @@ public class User {
 
     public String getUsername() { return username; }
 
-    public String getPassword() { return password; }
+    public int checkPassword(String input){
+        if(input.equals(this.password))
+            return 1;
+
+        return 0;
+    }
 
     public List<User> getFollowers() {
         return Collections.unmodifiableList(followerList);
