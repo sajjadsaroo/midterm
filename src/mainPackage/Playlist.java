@@ -57,7 +57,7 @@ public class Playlist {
     public ArrayList<Music> searchInPlaylist(String title) {
         ArrayList<Music> result = new ArrayList<>();
         for (Music m : playlist) {
-            if (m.getTitle().equals(title)) {
+            if (m.getTitle().equalsIgnoreCase(title)) {
                 result.add(m);
             }
         }
@@ -66,7 +66,7 @@ public class Playlist {
 
     public Music searchInPlaylist(String title, String singerUsername) {
         for (Music m : playlist) {
-            if (m.getTitle().equals(title) && m.getSinger().getUsername().equals(singerUsername)) {
+            if (m.getTitle().equalsIgnoreCase(title) && m.getSinger().getUsername().equalsIgnoreCase(singerUsername)) {
                 return m;
             }
         }
