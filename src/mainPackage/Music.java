@@ -58,7 +58,7 @@ public class Music {
     public static ArrayList<Music> search(String title) {
         ArrayList<Music> results = new ArrayList<>();
         for (Music m : allMusics) {
-            if (m.title.trim().toLowerCase().contains(title.trim().toLowerCase())) {
+            if (m.getTitle().trim().toLowerCase().contains(title.trim().toLowerCase())) {
                 results.add(m);
             }
         }
@@ -67,7 +67,7 @@ public class Music {
 
     public static Music search(String title, String singerName) {
         for (Music m : allMusics) {
-            if (m.title.trim().toLowerCase().contains(title.trim().toLowerCase()) && m.singer.getName().trim().toLowerCase().contains(singerName.trim().toLowerCase())) {
+            if (m.getTitle().trim().toLowerCase().contains(title.trim().toLowerCase()) && m.singer.getName().trim().toLowerCase().contains(singerName.trim().toLowerCase())) {
                 return m;
             }
         }
