@@ -6,6 +6,8 @@ import java.util.List;
 
 public class User {
 
+
+    private String name;
     private final String username;
     private String password;
 
@@ -17,18 +19,22 @@ public class User {
 
     private static final ArrayList<User> allUsers = new ArrayList<>();
 
-    public User(String username, String password) {
+    public User(String username, String password, String name) {
         validateUsername(username);
         validatePassword(password);
+        validateName(name);
 
         this.username = username;
         this.password = password;
+        this.name = name;
 
         allUsers.add(this);
     }
 
 
     // getters and public api
+
+
 
     public void addPlaylistInternal(Playlist p) {
         playlists.add(p);
@@ -65,6 +71,14 @@ public class User {
         return 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<User> getFollowers() {
         return Collections.unmodifiableList(followerList);
     }
@@ -95,16 +109,23 @@ public class User {
         this.password = password;
     }
 
-    private static void validateUsername(String name) {
-        if (name == null || name.trim().isEmpty()) {
+    private static void validateUsername(String username) {
+        if (username == null || username.trim().isEmpty()) {
             throw new InvalidOperationException("Username cannot be empty!");
         }
 
         for (User allUser : allUsers) {
-            if (allUser.username.equals(name)) {
+            if (allUser.username.equals(username)) {
                 throw new InvalidOperationException("Username already exists!");
             }
         }
+    }
+
+    private static void validateName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new InvalidOperationException("name cannot be empty!");
+        }
+
     }
 
     private static void validatePassword(String p) {
