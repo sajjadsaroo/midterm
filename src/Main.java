@@ -106,6 +106,10 @@ public class Main {
             System.out.println("[10] ❌ " + e.getMessage());
         }
 
+        //بخش 12: تست تعداد استریم های موزیک
+        System.out.println("[12] Number of Streams of Track1: " + m1.getNumberOfStream());
+        System.out.println("[12] Number of Streams of Track2: " + m2.getNumberOfStream());
+
         // بخش 11: تست تغییر رمز عبور و اعتبارسنجی جدید
         sajad.changePassword("newpass123");
         System.out.println("[11] Password changed. Check new: " + (sajad.checkPassword("newpass123") == 1));
