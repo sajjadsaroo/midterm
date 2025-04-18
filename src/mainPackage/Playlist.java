@@ -19,6 +19,8 @@ public class Playlist {
 
         this.title = title;
         this.owner = owner;
+        owner.addPlaylistInternal(this);
+
     }
 
     public void editTitle(String newTitle, String password) {
