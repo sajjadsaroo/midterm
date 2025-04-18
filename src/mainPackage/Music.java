@@ -19,6 +19,14 @@ public class Music {
             throw new InvalidOperationException("Singer cannot be null.");
         }
 
+        for (Music m : allMusics) {
+            if (m.title.equalsIgnoreCase(title) &&
+                    m.singer.getUsername().equalsIgnoreCase(singer.getUsername())) {
+                throw new InvalidOperationException("Duplicate music with same title and singer already exists.");
+            }
+        }
+
+
         this.title = title;
         this.singer = singer;
 
@@ -29,21 +37,10 @@ public class Music {
         return title;
     }
 
-    public void setTitle(String title) {
-        if(title == null || title.trim().isEmpty()) {
-            throw new InvalidOperationException("Music title cannot be empty.");
-        }
-
-        this.title = title;
-    }
-
     public User getSinger() {
         return singer;
     }
 
-    public void setSinger(User singer) {
-        this.singer = singer;
-    }
 
     public int getNumberOfStream() {
         return numberOfStream;
