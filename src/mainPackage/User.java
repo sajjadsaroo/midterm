@@ -34,7 +34,15 @@ public class User {
         playlists.add(p);
     }
 
-    public void follow(User user) {}
+    public void follow(User user) {
+        if (user == null || user == this) {
+            throw new InvalidOperationException("Invalid user to follow.");
+        }
+        if (!followingList.contains(user)) {
+            followingList.add(user);
+            user.followerList.add(this);
+        }
+    }
 
     public void createPlaylist(String title) {
         behavior.createPlaylist(title, this);
