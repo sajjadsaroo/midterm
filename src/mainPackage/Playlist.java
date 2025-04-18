@@ -49,7 +49,7 @@ public class Playlist {
     }
 
     private void verifyPassword(String password) {
-        if (password == null || !password.equals(owner.getPassword())) {
+        if (password == null || owner.checkPassword(password) == 0) {
             throw new InvalidOperationException("Incorrect password.");
         }
     }
