@@ -82,15 +82,15 @@ public class User {
     }
 
     // behavior helper
-    UserBehavior getBehavior() {
+    public UserBehavior getBehavior() {
         return behavior;
     }
 
-    void setBehavior(UserBehavior behavior) {
+    public void setBehavior(UserBehavior behavior) {
         this.behavior = behavior;
     }
 
-    void changePassword(String password) {
+    public void changePassword(String password) {
         validatePassword(password);
         this.password = password;
     }
